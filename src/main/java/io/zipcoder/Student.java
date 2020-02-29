@@ -16,7 +16,7 @@ public class Student {
 
     }
 
-    public void setFirstName() {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -24,20 +24,13 @@ public class Student {
         return firstName;
     }
 
-    public void setLastName() {
-        this.lastName = lastName;
-    }
 
     public String getLastName() {
         return lastName;
     }
 
-    public ArrayList<Double> getTestScores() {
-        return examScores;
-    }
-
-    public Integer getNumberOfExamsTaken() {
-        return examScores.size();
+    public String setLastName() {
+        this.lastName = lastName;
     }
 
     public String getExamScores() {
@@ -48,16 +41,19 @@ public class Student {
         return examScoreString.toString();
     }
 
-    public void addExamScore(double examScore) {
+   public void addExamScore(double examScore) {
         this.examScores.add(examScore);
     }
 
-    public void setExamScore(int examNumber, double newScore) {
-        examScores.set(examNumber, newScore);
+    public void setExamScores(int examNumber, double newScore) {
+        this.examScores.set(examNumber - 1, newScore);
     }
 
-
-
-
-
+    public double getAverageExamScore() {
+        double sum = 0;
+        for (Double studentScore : this.examScores) {
+            sum += studentScore;
+        }
+        return Math.round(sum / this.examScores.size());
+    }
 }
