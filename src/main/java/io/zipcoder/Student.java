@@ -1,18 +1,19 @@
 package io.zipcoder;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 public class Student {
-    private String firstName;
-    private String lastName;
-    private ArrayList<Double> examScores;
+    String firstName;
+    String lastName;
+    ArrayList<Double> examScores;
 
-    public Student(String firstName, String lastName, ArrayList<Double> examScores) {
+    public Student() {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.examScores = examScores;
+        this.examScores = new ArrayList(Arrays.asList(examScores));
+
     }
 
     public void setFirstName(String firstName) {
@@ -23,50 +24,30 @@ public class Student {
         return firstName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getLastName() {
         return lastName;
     }
-    // public void setExamScores(ArrayList<Double>examScores) {
-    //  this.examScores = examScores;
-    // }
-
-
-    public int getNumberOfExamsTaken() {
-        return examScores.size();
+    
+    public String setLastName() {
+        this.lastName = lastName;
     }
 
     public String getExamScores() {
-        return "Exam Scores:\n" +
-                "\n\tExam 1 -> " + examScores.get(0) +
-                "\n\tExam 1 -> " + examScores.get(1) +
-                "\n\tExam 1 -> " + examScores.get(2)+
-                "\n\tExam 1 -> " + examScores.get(3);
-
+        StringBuilder examScoreString = new StringBuilder();
+        for(Double studentGrade : this.examScores) {
+            System.out.println("Exam %d: %.2f%n:"), (this.examScores.indexOf(studentGrade)) + 1, studentGrade);
         }
+        return examScoreString.toString();
+    }
+    
    public void addExamScore(double examScore) {
         this.examScores.add(examScore);
     }
 
     public void setExamScores(int examNumber, double newScore) {
-        this.examScores.set(examNumber -1, newScore);
+        this.examScores.set(examNumber - 1, newScore);
     }
-
-
-
-
-
-
-    }
-
-
-
-
-
-
-
+}
 
 
