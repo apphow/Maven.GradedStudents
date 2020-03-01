@@ -1,19 +1,16 @@
 package io.zipcoder;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.logging.Logger;
 
 public class Student {
-    String firstName;
-    String lastName;
-    ArrayList<Double> examScores;
+    private String firstName;
+    private String lastName;
+    private ArrayList<Double> examScores;
 
     public Student() {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.examScores = new ArrayList(Arrays.asList(examScores));
-
+        this.examScores = new ArrayList<>(examScores);
     }
 
     public void setFirstName(String firstName) {
@@ -24,19 +21,18 @@ public class Student {
         return firstName;
     }
 
-
     public String getLastName() {
         return lastName;
     }
     
-    public String setLastName() {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     public String getExamScores() {
         StringBuilder examScoreString = new StringBuilder();
         for(Double studentGrade : this.examScores) {
-            System.out.println("Exam %d: %.2f%n:"), (this.examScores.indexOf(studentGrade)) + 1, studentGrade);
+            System.out.println(("Exam %d: %.2f%n:", (this.examScores.indexOf(studentGrade)) + 1, studentGrade);
         }
         return examScoreString.toString();
     }
